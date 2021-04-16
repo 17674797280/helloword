@@ -1,0 +1,17 @@
+com\yidu\ssmdemo007\controller\StuidentCotroller.class
+com\yidu\ssmdemo007\dao\StuidentDao.class
+com\yidu\ssmdemo007\controller\UserCotroller.class
+com\yidu\ssmdemo007\service\UserService.class
+com\yidu\ssmdemo007\controller\MenuinfoController.class
+com\yidu\ssmdemo007\dao\ProduDao.class
+com\yidu\ssmdemo007\service\ProductService.class
+com\yidu\ssmdemo007\dao\UserDao.class
+com\yidu\ssmdemo007\bean\Stuident2.class
+com\yidu\ssmdemo007\bean\UserInfo.class
+com\yidu\ssmdemo007\controller\ProductCotroller.class
+com\yidu\ssmdemo007\service\MenuinfoServlet.class
+com\yidu\ssmdemo007\Ssmdemo007Application.class
+com\yidu\ssmdemo007\bean\Product.class
+com\yidu\ssmdemo007\bean\Menuinfo.class
+com\yidu\ssmdemo007\dao\MenuinfoDao.class
+com\yidu\ssmdemo007\service\Stuident2Service.class

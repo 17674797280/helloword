@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.ssmdemo007.dao.UserDao">
+ <!-- 登陆 -->
+   <select id="logins" resultType="com.yidu.ssmdemo007.bean.UserInfo">
+       select * from userinfo where  username=#{username} and userpass=#{userpass}
+   </select>
+
+
+    <insert id="insert" parameterType="com.yidu.ssmdemo007.bean.UserInfo">
+        insert  into userinfo  (username,userpass,compellation,state)  values (#{username},#{userpass},#{compellation},#{state})
+    </insert>
+
+</mapper>
+

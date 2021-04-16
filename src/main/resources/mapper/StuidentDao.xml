@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yidu.ssmdemo007.dao.StuidentDao">
+
+<select id="seleBid" resultType="Stuident2">
+    select  * from student2 where stuId=#{stuId}
+</select>
+
+    <insert id="adds" parameterType="Product">
+        insert  into product  (pname,pnum,price) values (#{pname},#{pnum},#{price})
+    </insert>
+
+
+
+</mapper>
+

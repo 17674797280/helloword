@@ -57,4 +57,23 @@ public class MenuinfoController {
         //跳转到指定页面，显示数据
         return "menuinfo";
     }
+    /**
+     * 修改
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("selectOne")
+    public Menuinfo selectOne(String menuid){
+        //调用数据库方法得到用户数据
+        Menuinfo menuinfo = menuinfoServlet.selectOne(menuid);
+        //跳转到指定页面，显示数据
+        return menuinfo;
+    }
+    @RequestMapping("updata")
+    public String updata(Menuinfo menuinfos){
+        //调用数据库方法得到用户数据
+        int i= menuinfoServlet.updata(menuinfos);
+        //跳转到指定页面，显示数据
+        return "forward:selectAll1";
+    }
 }

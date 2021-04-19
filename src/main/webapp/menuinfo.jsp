@@ -35,18 +35,58 @@
                 <td>${menuinfo.parentId}</td>
                 <td>${menuinfo.iconCls}</td>
                 <td>
-                    <button onclick="deleteById(${menuinfo.menuid})")>删除</button>
-                    <button>修改</button>
+                    <button onclick="deleteById('${menuinfo.menuid}')")>删除</button>
+                    <button onclick="update('${menuinfo.menuid}')">修改</button>
                 </td>
             </tr>
             </c:forEach>
         </table>
+        <div id="myForm" style="display: none">
+            <form action="updata" method="post" >
+                产品id:<input type="text" name="menuid" placeholder="请输入产品id"><br>
+                菜单标题:<input type="text" name="title" placeholder="请输入菜单标题"><br>
+                菜单状态:<input type="text" name="state" placeholder="请输入菜单状态"><br>
+                菜单地址:<input type="text" name="url" placeholder="请输入菜单地址"><br>
+                菜单上级id:<input type="text" name="parentId" placeholder="请输入菜单上级id"><br>
+                菜单log图:<input type="text" name="iconCls" placeholder="请输入菜单log图"><br>
+                <input type="submit" value="提交">
+            </form>
+        </div>
     </center>
+</body>
 <script type="text/javascript">
-    $(function deleteById(id) {
+    function deleteById(id) {
         alert(id) //得到id
         //使用ajax 调用后台删除的方法
-    })
+        $.ajax({
+            type: "POST",//规定传输方式
+            url: "deleteById",//提交URL
+            data: "menuid="+id,//提交的数据
+            success: function(data){
+                alert(data)
+                window.location.reload();
+            }
+        });
+    }
+    function update(id) {
+        $.ajax({
+            type: "POST",//规定传输方式
+            url: "selectOne",//提交URL
+            data: "menuid="+id,//提交的数据
+            success: function(data){
+                $("input[name='menuid']").val(data.menuid)
+                $("input[name='title']").val(data.title)
+                $("input[name='state']").val(data.state)
+                $("input[name='url']").val(data.url)
+                $("input[name='parentId']").val(data.parentId)
+                $("input[name='iconCls']").val(data.iconCls)
+                $("#myForm").css("display","block");
+                //window.location.reload();
+
+            }
+        });
+
+
+    }
 </script>
-</body>
 </html>

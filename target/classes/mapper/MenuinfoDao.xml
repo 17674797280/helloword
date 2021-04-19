@@ -5,6 +5,9 @@
     <select id="selectAll" resultType="com.yidu.ssmdemo007.bean.Menuinfo">
         select  * from menuinfo
     </select>
+    <select id="selectOne" resultType="com.yidu.ssmdemo007.bean.Menuinfo">
+        select  * from menuinfo where menuid=#{menuid}
+    </select>
 
     <insert id="insert" parameterType="com.yidu.ssmdemo007.bean.Menuinfo">
         insert  into menuinfo  (menuid,title,state,url,parentId,iconCls) values (#{menuid},#{title},#{state},#{url},#{parentId},#{iconCls})
@@ -14,5 +17,8 @@
         delete from menuinfo where menuid=#{menuid}
     </delete>
 
+    <update id="updata" parameterType="com.yidu.ssmdemo007.bean.Menuinfo">
+        update menuinfo set title=#{title},state=#{state},url=#{url},parentId=#{parentId},iconCls=#{iconCls} where menuid=#{menuid}
+    </update>
 </mapper>
 

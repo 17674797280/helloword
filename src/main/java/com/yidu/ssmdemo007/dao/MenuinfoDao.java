@@ -24,4 +24,11 @@ public interface MenuinfoDao {
      * 删除
      */
     public int deleteById(String menuid);
+
+    /**
+     * 修改
+     */
+    public int updata(Menuinfo menuinfo);
+
+    public Menuinfo selectOne(String menuid);
 }

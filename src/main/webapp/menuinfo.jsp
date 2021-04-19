@@ -56,7 +56,7 @@
 </body>
 <script type="text/javascript">
     function deleteById(id) {
-        alert(id) //得到id
+       // alert(id) //得到id
         //使用ajax 调用后台删除的方法
         $.ajax({
             type: "POST",//规定传输方式

@@ -31,10 +31,11 @@ public class MenuinfoController {
      * @return
      */
     @RequestMapping("insert")
-    @ResponseBody
-    public int insert(Menuinfo menuinfo){
-        /*System.out.println(menuinfo);*/
-        return menuinfoServlet.insert(menuinfo);
+    public String insert(Menuinfo menuinfo){
+        //调用数据库方法得到用户数据
+        int e = menuinfoServlet.insert(menuinfo);
+        //跳转到指定页面，显示数据
+        return "forward:selectAll1";
     }
     /**
      * 删除

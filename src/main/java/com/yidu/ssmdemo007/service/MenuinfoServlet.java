@@ -26,7 +26,8 @@ public class MenuinfoServlet {
     }
 
     public int updata(Menuinfo menuinfo){return menuinfoDao.updata(menuinfo);}
-    public Menuinfo selectOne(String menuid){
-        return menuinfoDao.selectOne(menuid);
-    }
+
+    public Menuinfo selectOne(String menuid){ return menuinfoDao.selectOne(menuid);}
+
+
 }

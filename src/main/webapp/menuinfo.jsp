@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>用户列表</title>
     <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+
 </head>
 <body>
     <center>
@@ -13,7 +14,7 @@
         菜单标题: <input type="text" name="title" placeholder="请输入菜单标题">
         <button>查询</button>
         <table border="1" style="text-align: center">
-            <caption><button>新增</button></caption>
+            <%--<caption><button>新增</button></caption>--%>
            <thead>
                 <tr>
                     <th>产品id</th>
@@ -37,6 +38,7 @@
                 <td>
                     <button onclick="deleteById('${menuinfo.menuid}')")>删除</button>
                     <button onclick="update('${menuinfo.menuid}')">修改</button>
+                    <button onclick="insert('${menuinfo.menuid}')">新增</button>
                 </td>
             </tr>
             </c:forEach>
@@ -49,14 +51,33 @@
                 菜单地址:<input type="text" name="url" placeholder="请输入菜单地址"><br>
                 菜单上级id:<input type="text" name="parentId" placeholder="请输入菜单上级id"><br>
                 菜单log图:<input type="text" name="iconCls" placeholder="请输入菜单log图"><br>
-                <input type="submit" value="提交">
+                <input type="submit" value="确认修改">
             </form>
         </div>
     </center>
+
+<div class="insert" >
+
+        <center>
+            <div id="aa" style="display: none">
+            <form action="insert" method="post" id="myfroms">
+                产品id:<input type="text" name="menuid" placeholder="请输入产品id">
+                <br/>菜单标题:<input type="text" name="title" placeholder="请输入菜单标题">
+                <br/>菜单状态:<input type="text" name="state" placeholder="请输入菜单状态">
+                <br/>菜单地址:<input type="text" name="url" placeholder="请输入菜单地址">
+                <br/>菜单上级id:<input type="text" name="parentId" placeholder="请输入菜单上级id">
+                <br/>菜单log图:<input type="text" name="iconCls" placeholder="请输入菜单log图">
+                <br/><input type="submit" value="确认新增">
+
+            </form>
+                <input type="submit" value="取消新增">
+                </div>
+        </center>
+    </div>
 </body>
 <script type="text/javascript">
     function deleteById(id) {
-       // alert(id) //得到id
+       alert(id) //得到id
         //使用ajax 调用后台删除的方法
         $.ajax({
             type: "POST",//规定传输方式
@@ -72,7 +93,7 @@
         $.ajax({
             type: "POST",//规定传输方式
             url: "selectOne",//提交URL
-            data: "menuid="+id,//提交的数据
+            data: "menuinfo="+id,//提交的数据
             success: function(data){
                 $("input[name='menuid']").val(data.menuid)
                 $("input[name='title']").val(data.title)
@@ -85,8 +106,21 @@
 
             }
         });
+    }
+    function insert(id) {
+        $("#aa").css("display","block")
 
 
+       /* //alert($("#myfroms").serialize())
+        $.ajax({
+            type: "POST",//规定传输方式
+            url: "insert",//提交URL
+            data: $("#myfroms").serialize(),//提交的数据
+            success: function(data){
+
+
+            }
+        });*/
     }
 </script>
 </html>
